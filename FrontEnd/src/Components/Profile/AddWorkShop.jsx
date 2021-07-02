@@ -201,7 +201,7 @@ const AddWorkShop = () => {
             uploadResearchPaper()
             .then( (resUrl) => {
                 axios
-                        .post('http://localhost:5000/api/workshop/create', {
+                        .post('https://salty-savannah-48438.herokuapp.com/api/workshop/create', {
                             title: title,
                             description: description,
                             presentationFileURL: resUrl,

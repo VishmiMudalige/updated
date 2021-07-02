@@ -49,7 +49,7 @@ export default function CompShedule() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/conferences/60d76048aa132a4cf07b74dd")
+      .get("https://salty-savannah-48438.herokuapp.com/api/conferences/60d76048aa132a4cf07b74dd")
       .then((res) => {
         setResponse(res.data);
       })

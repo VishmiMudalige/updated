@@ -23,7 +23,7 @@ export default function UpdateConferenceDate() {
     useEffect(() => {
 
         function getData() {
-            axios.get('http://localhost:5000/api/conferences/60d76048aa132a4cf07b74dd')
+            axios.get('https://salty-savannah-48438.herokuapp.com/api/conferences/60d76048aa132a4cf07b74dd')
             .then(res => {
                 let start = new Date(res.data.conference.startDate);
                 let end = new Date(res.data.conference.endDate);
@@ -56,7 +56,7 @@ export default function UpdateConferenceDate() {
             endDate: endDateRef.current.value
         }
 
-        axios.patch('http://localhost:5000/api/conferences/update-conference-date/60d76048aa132a4cf07b74dd',
+        axios.patch('https://salty-savannah-48438.herokuapp.com/api/conferences/update-conference-date/60d76048aa132a4cf07b74dd',
         conferenceUpdate)
         .then(res => {
             if(res.status == 200){

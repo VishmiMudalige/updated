@@ -159,7 +159,7 @@ const Profile = () => {
 
     const fetchUser = () => {
         return new Promise((resolve,reject) => {
-            fetch(`http://localhost:5000/api/user/singleuser/${localStorage.getItem('userId')}`)
+            fetch(`https://salty-savannah-48438.herokuapp.com/api/user/singleuser/${localStorage.getItem('userId')}`)
             .then((res)=> {return res.json()})
             .then((res) => {
                 console.log(res)

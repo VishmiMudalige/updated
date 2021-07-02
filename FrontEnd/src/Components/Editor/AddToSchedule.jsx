@@ -42,7 +42,7 @@ export default function AddToSchedule() {
 
   const sendToDB = data => {
     axios
-    .patch('http://localhost:5000/api/conferences/update-conference/60d76048aa132a4cf07b74dd', data)
+    .patch('https://salty-savannah-48438.herokuapp.com/api/conferences/update-conference/60d76048aa132a4cf07b74dd', data)
     .then(res => {
       if(res.status == 200) {
         alert('Updated');
@@ -89,7 +89,7 @@ export default function AddToSchedule() {
   useEffect(() => {
 
     function getData() {
-        axios.get('http://localhost:5000/api/paper/get-approved')
+        axios.get('https://salty-savannah-48438.herokuapp.com/api/paper/get-approved')
         .then(res => {
             setResearchPapers(res.data.papers);
 
@@ -105,7 +105,7 @@ export default function AddToSchedule() {
         })
         .catch(err => console.log(err));
 
-        axios.get('http://localhost:5000/api/workshop/view/approved')
+        axios.get('https://salty-savannah-48438.herokuapp.com/api/workshop/view/approved')
         .then(res => {
             setWorkshops(res.data.workshops);
 

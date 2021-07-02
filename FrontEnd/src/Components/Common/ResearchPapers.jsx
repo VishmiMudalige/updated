@@ -9,7 +9,7 @@ const ResearchPapers = () => {
 
   function getResearchPapers(papers) {
     papers.forEach(resPaper => {
-      axios.get(`http://localhost:5000/api/paper/get/${resPaper.paper._id}`)
+      axios.get(`https://salty-savannah-48438.herokuapp.com/api/paper/get/${resPaper.paper._id}`)
       .then(res => {
         let paper = res.data;
         setResearchPapers(prevState => [...prevState, {  paper }]);
@@ -20,7 +20,7 @@ const ResearchPapers = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/conferences/60d76048aa132a4cf07b74dd")
+      .get("https://salty-savannah-48438.herokuapp.com/api/conferences/60d76048aa132a4cf07b74dd")
       .then((res) => {
         if(res.data.conference.sortedPaperSchedule) { 
           const tempPapers = res.data.conference.sortedPaperSchedule.researchPapers.filter(

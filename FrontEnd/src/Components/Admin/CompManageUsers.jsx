@@ -40,7 +40,7 @@ export default function CompManageUsers() {
     // console.log(user.role);
     if (confirm("Are you sure?")) {
       axios
-        .patch(`http://localhost:5000/api/user/${user.id}`, { role: user.role })
+        .patch(`https://salty-savannah-48438.herokuapp.com/api/user/${user.id}`, { role: user.role })
         .then((res) => {
           if (res.status == 200) {
             alert("updated");
@@ -68,7 +68,7 @@ export default function CompManageUsers() {
   useEffect(() => {
     function getAllUsers() {
       axios
-        .get("http://localhost:5000/api/user/getall")
+        .get("https://salty-savannah-48438.herokuapp.com/api/user/getall")
         .then((res) => {
           let attendees = res.data.result.filter(
             (user) => user.role == "Attendee" || "Editor" || "Reviewer"

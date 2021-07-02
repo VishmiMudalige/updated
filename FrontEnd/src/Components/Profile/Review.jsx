@@ -65,14 +65,14 @@ const Review = () => {
 
   useEffect( () => {
     axios
-        .get('http://localhost:5000/api/paper/getall')
+        .get('https://salty-savannah-48438.herokuapp.com/api/paper/getall')
         .then(res => setResearchPapers(res.data.result.filter(data => data.status === "Approved") ))
         .catch(err => console.log(err))
   }, []);
 
   useEffect( () => {
     axios
-        .get('http://localhost:5000/api/workshop/view/all')
+        .get('https://salty-savannah-48438.herokuapp.com/api/workshop/view/all')
         .then(res => setWorkshopData(res.data.result.filter(data => data.status === "Approved")))
         .catch(err => console.log(err))
   }, []);

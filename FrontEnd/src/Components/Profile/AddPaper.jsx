@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-const AddPaper = () => {
+const AddPaper = (props) => {
 
     const classes = useStyles()
     const [thumbnail, setThumbnail] = useState(null)
@@ -217,7 +217,7 @@ const AddPaper = () => {
                 .then(res => {
                     setResearchPaperUrl(res);
                     axios
-                        .post('http://localhost:5000/api/paper/create/60d974493bc02a28c097e237/60d974493bc02a28c097e237', {
+                        .post('https://salty-savannah-48438.herokuapp.com/api/paper/create/60d974493bc02a28c097e237/60d974493bc02a28c097e237', {
                             url: res,
                             ownerRef: "60d974493bc02a28c097e237",
                             title: title,
@@ -226,8 +226,9 @@ const AddPaper = () => {
                             conferenceRef: "60d974493bc02a28c097e237"
                         })
                         .then(res => {
-                            alert("ok")
+                            alert("Succesfully updated")
                             setLoading(false)
+                            props.history.push("/login");
                         })
                         .catch(err => {
                             alert(err)

@@ -34,7 +34,7 @@ export const isAthenticated = () => {
 
 export const getUserById = (id) => {
     return new Promise((resolve, reject) => {
-        fetch(`http://localhost:5000/api/user/singleuser/${id}`)
+        fetch(`https://salty-savannah-48438.herokuapp.com/api/user/singleuser/${id}`)
         .then(res => {return res.json()})
         .then(res => {
             console.log(res)

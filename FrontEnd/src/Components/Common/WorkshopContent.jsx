@@ -9,7 +9,7 @@ const WorkshopContent = () => {
 
   function getWorkshopData(workshops) {
     workshops.forEach(workshop => {
-      axios.get(`http://localhost:5000/api/workshop/viewbyid/${workshop.workshop._id}`)
+      axios.get(`https://salty-savannah-48438.herokuapp.com/api/workshop/viewbyid/${workshop.workshop._id}`)
       .then(res => {
         let workshop = res.data.result[0];
         setWorkshopData(prevState => [...prevState, {
@@ -22,7 +22,7 @@ const WorkshopContent = () => {
 
   useEffect( () => {
     axios
-        .get('http://localhost:5000/api/conferences/60d76048aa132a4cf07b74dd')
+        .get('https://salty-savannah-48438.herokuapp.com/api/conferences/60d76048aa132a4cf07b74dd')
         .then(res => {
           if(res.data.conference.sortedWorkshopSchedule) {
             const tempWorkshops = res.data.conference.sortedWorkshopSchedule.workshops.filter(

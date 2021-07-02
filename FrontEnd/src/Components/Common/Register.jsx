@@ -64,6 +64,7 @@ const Register = (props) => {
             for (var i = 0, length = radios.length; i < length; i++) {
                 if (radios[i].checked) {
                   setRole(radios[i].value);
+                  localStorage.setItem("role",radios[i].value)
                   break;
                 }
             }
@@ -71,7 +72,7 @@ const Register = (props) => {
                 name: name,
                 email: email,
                 password: password,
-                role: role,
+                role: localStorage.getItem("role"),
                 profilePicture: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png'
             }
             console.log(userData)
@@ -101,19 +102,13 @@ const Register = (props) => {
             })
         }else {
             setLoading(false)
-            for (var i = 0, length = radios.length; i < length; i++) {
-                if (radios[i].checked) {
-                  setRole(radios[i].value);
-                  break;
-                }
-            }
         }
     }
 
     const handleNevigate = () => {
-        if(role === "Attendee"){
+        if(localStorage.getItem("role") === "Attendee"){
             props.history.push("/login");
-        }else if(role === "Researcher"){
+        }else if(localStorage.getItem("role") === "Researcher"){
             props.history.push("/addpaper");
         }else{
             props.history.push("/addworkshop");
@@ -202,7 +197,7 @@ const Register = (props) => {
 
     const postData = (userData) => {
         return new Promise((resolve, reject) => {
-            fetch('http://localhost:5000/api/auth/signup', {
+            fetch('https://salty-savannah-48438.herokuapp.com/api/auth/signup', {
                 headers: {
                     'Content-Type': 'application/json'
                 },

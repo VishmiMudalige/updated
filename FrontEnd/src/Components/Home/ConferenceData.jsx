@@ -35,7 +35,7 @@ export default function ConferenceData() {
 
   useEffect( () => {
     axios
-        .get(`https://blooming-garden-43432.herokuapp.com/api/conferences/${LATEST_CONF_ID}`)
+        .get(`https://salty-savannah-48438.herokuapp.com/api/conferences/${LATEST_CONF_ID}`)
         .then(res =>  {
             console.log(res.data.conference);
             setStartDate(res.data.conference.startDate.substring(0,10));

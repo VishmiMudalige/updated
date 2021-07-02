@@ -6,7 +6,7 @@ import Header from "./Components/Common/Header";
 import Footer from "./Components/Common/Footer";
 import Home from "./Components/Home/Home";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Link,
   Route,

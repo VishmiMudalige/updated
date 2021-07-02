@@ -128,7 +128,7 @@ const Login = (props) => {
 
     const postLogin = (loginData) => {
         return new Promise((resolve,reject) => {
-            fetch('http://localhost:5000/api/auth/login', {
+            fetch('https://salty-savannah-48438.herokuapp.com/api/auth/login', {
                 headers: {
                     'Content-Type': 'application/json',
                 },

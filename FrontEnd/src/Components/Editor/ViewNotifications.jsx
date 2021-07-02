@@ -27,7 +27,7 @@ export default function ViewEditorNotifications() {
     useEffect(() => {
         console.log("messages");
         function getMessages(){ 
-            axios.get('http://localhost:5000/api/notifications/view-notifications/60d9a9a6528bc923cc12ee3b')
+            axios.get('https://salty-savannah-48438.herokuapp.com/api/notifications/view-notifications/60d9a9a6528bc923cc12ee3b')
             .then(res => {
                 setMessages(res.data.notifications);
             })
