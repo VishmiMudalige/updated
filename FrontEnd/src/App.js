@@ -6,7 +6,7 @@ import Header from "./Components/Common/Header";
 import Footer from "./Components/Common/Footer";
 import Home from "./Components/Home/Home";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Link,
   Route,
@@ -17,6 +17,7 @@ import AllPendings from "./Components/Admin/AllPendings";
 import AllAprovings from "./Components/Admin/AllAproveds";
 import ManageUsers from "./Components/Admin/ManageUsers";
 import PaymentChk from "./Components/Admin/PaymentChecking";
+import ViewShedulesForAdmin from "./Components/Admin/ViewShedules";
 import { Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Download from "./Components/Home/Download";
@@ -60,6 +61,7 @@ const App = () => (
           <Route path="/admin/all-approvings" exact component={AllAprovings} />
           <Route path="/admin/manage-users" exact component={ManageUsers} />
           <Route path="/admin/check-payments" exact component={PaymentChk} />
+          <Route path="/admin/view-schedules/:id" exact component={ViewShedulesForAdmin} />
           <Route path="/admin" exact component={Admin} />
           <Route path="/download" exact component={Download} />
           <Route path="/login" exact component={Login} />
