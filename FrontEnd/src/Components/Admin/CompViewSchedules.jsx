@@ -69,7 +69,7 @@ const Download = () => {
   useEffect(() => {
     axios
       .get(
-        "http://localhost:5000/api/conferences/admin-view/60d76048aa132a4cf07b74dd"
+        "https://salty-savannah-48438.herokuapp.com/api/conferences/admin-view/60d76048aa132a4cf07b74dd"
       )
       .then((res) => {
         setWorkshopData(
@@ -85,7 +85,7 @@ const Download = () => {
   useEffect(() => {
     axios
       .get(
-        "http://localhost:5000/api/conferences/admin-view/60d76048aa132a4cf07b74dd"
+        "https://salty-savannah-48438.herokuapp.com/api/conferences/admin-view/60d76048aa132a4cf07b74dd"
       )
       .then((res) => {
         setResearchPapers(

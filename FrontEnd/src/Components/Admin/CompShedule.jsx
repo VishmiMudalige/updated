@@ -67,7 +67,7 @@ export default function CompShedule() {
     if (confirm("Are you sure?")) {
       axios
         .patch(
-          "http://localhost:5000/api/conferences/approve-schedule/60d76048aa132a4cf07b74dd",
+          "https://salty-savannah-48438.herokuapp.com/api/conferences/approve-schedule/60d76048aa132a4cf07b74dd",
           Shedule
         )
         .then((res) => {
@@ -100,7 +100,7 @@ export default function CompShedule() {
       message
     }
 
-    axios.post('http://localhost:5000/api/notifications/send-notification', notification)
+    axios.post('https://salty-savannah-48438.herokuapp.com/api/notifications/send-notification', notification)
     .then(res => {
       if(res.status == 201){
         alert("Message sent");

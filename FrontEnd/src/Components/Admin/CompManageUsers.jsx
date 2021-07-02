@@ -71,7 +71,7 @@ export default function CompManageUsers() {
 
   const getAllUsers = async () => {
     try {
-      await axios.get("http://localhost:5000/api/user/getall").then((res) => {
+      await axios.get("https://salty-savannah-48438.herokuapp.com/api/user/getall").then((res) => {
         let attendees = res.data.result.filter(
           (user) =>
             user.role == "Attendee" ||

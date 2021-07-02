@@ -53,7 +53,7 @@ export default function CompShedule() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/conferences/60d76048aa132a4cf07b74dd")
+      .get("https://salty-savannah-48438.herokuapp.com/api/conferences/60d76048aa132a4cf07b74dd")
       .then((res) => {
         setResponse(res.data);
         setLoading(false);
@@ -67,7 +67,7 @@ export default function CompShedule() {
     if (confirm("Are you sure?")) {
       axios
         .patch(
-          "http://localhost:5000/api/conferences/reject-schedule/60d76048aa132a4cf07b74dd",
+          "https://salty-savannah-48438.herokuapp.com/api/conferences/reject-schedule/60d76048aa132a4cf07b74dd",
           Shedule
         )
         .then((res) => {
