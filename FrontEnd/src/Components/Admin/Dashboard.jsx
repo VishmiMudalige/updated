@@ -43,8 +43,8 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    marginLeft: "-82px",
-    marginRight: "-82px",
+    marginLeft: "-90px",
+    marginRight: "-90px",
   },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
@@ -110,9 +110,9 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
   },
-  approvedGrid:{
-    maxWidth:"75%",
-    marginRight:"40px"
+  approvedGrid: {
+    maxWidth: "75%",
+    marginRight: "40px",
   },
   paper: {
     padding: theme.spacing(2),
@@ -197,8 +197,8 @@ export default function Dashboard() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={5}>
-             {/*Pending Shedules*/}
-             <Grid item xs={12}>
+            {/*Pending Shedules*/}
+            <Grid item xs={12}>
               <Paper className={classes.paper}>
                 {/* <Pending /> */}
                 <CompShedule />
@@ -211,10 +211,8 @@ export default function Dashboard() {
               </Paper>
             </Grid>
             {/*Recent*/}
-            <Grid  className={classes.test} item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-
-              </Paper>
+            <Grid className={classes.test} item xs={12} md={4} lg={3}>
+              <Paper className={fixedHeightPaper}></Paper>
             </Grid>
           </Grid>
           <Box pt={4}>
