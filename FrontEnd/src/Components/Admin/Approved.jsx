@@ -7,7 +7,7 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import {CircularProgress} from '@material-ui/core'
+import { CircularProgress } from "@material-ui/core";
 import Title from "./Title";
 import axios from "axios";
 
@@ -97,7 +97,7 @@ export default function CompShedule() {
 
           <TableCell>
             <div className={classes.seeMore}>
-              <Link to="/download" color="primary">
+              <Link to="/" color="primary">
                 See All Approvings
               </Link>
             </div>
@@ -114,81 +114,87 @@ export default function CompShedule() {
             <TableCell align="right"></TableCell>
           </TableRow>
         </TableHead>
-        {!isLoading ? response.conference === undefined ? null : (
-          <TableBody>
-            {[
-              ...response.conference.sortedWorkshopSchedule.workshops.filter(
-                (data) => data.isApproved == true
-              ),
-              ...response.conference.sortedPaperSchedule.researchPapers.filter(
-                (data) => data.isApproved == true
-              ),
-            ]
-              .filter((row) => {
-                if (search == "") {
-                  return row;
-                } else if (
-                  row.startTime.toLowerCase().includes(search.toLowerCase())
-                ) {
-                  return row;
-                } else if (
-                  row.endTime.toLowerCase().includes(search.toLowerCase())
-                ) {
-                  return row;
-                }
-              })
-              .map((row) => (
-                <TableRow>
-                  <TableCell className={classes.tableCell}>
-                    {row.startTime}
-                  </TableCell>
-                  <TableCell className={classes.tableCell}>
-                    {row.endTime}
-                  </TableCell>
-                  {row.paper ? (
+        {!isLoading ? (
+          response.conference === undefined ? null : (
+            <TableBody>
+              {[
+                ...response.conference.sortedWorkshopSchedule.workshops.filter(
+                  (data) => data.isApproved == true
+                ),
+                ...response.conference.sortedPaperSchedule.researchPapers.filter(
+                  (data) => data.isApproved == true
+                ),
+              ]
+                .filter((row) => {
+                  if (search == "") {
+                    return row;
+                  } else if (
+                    row.startTime.toLowerCase().includes(search.toLowerCase())
+                  ) {
+                    return row;
+                  } else if (
+                    row.endTime.toLowerCase().includes(search.toLowerCase())
+                  ) {
+                    return row;
+                  }
+                })
+                .map((row) => (
+                  <TableRow>
                     <TableCell className={classes.tableCell}>
-                      {row.paper !== undefined
-                        ? row.paper.title
-                        : row.workshop.title}
-                      - Paper
+                      {row.startTime}
                     </TableCell>
-                  ) : (
                     <TableCell className={classes.tableCell}>
-                      {row.paper !== undefined
-                        ? row.paper.title
-                        : row.workshop.title}
-                      - Workshop
+                      {row.endTime}
                     </TableCell>
-                  )}
+                    {row.paper ? (
+                      <TableCell className={classes.tableCell}>
+                        {row.paper !== undefined
+                          ? row.paper.title
+                          : row.workshop.title}
+                        - Paper
+                      </TableCell>
+                    ) : (
+                      <TableCell className={classes.tableCell}>
+                        {row.paper !== undefined
+                          ? row.paper.title
+                          : row.workshop.title}
+                        - Workshop
+                      </TableCell>
+                    )}
 
-                  {row.isApproved === false ? (
-                    <TableCell className={classes.tableCell}>
-                      Not Approved
+                    {row.isApproved === false ? (
+                      <TableCell className={classes.tableCell}>
+                        Not Approved
+                      </TableCell>
+                    ) : (
+                      <TableCell className={classes.tableCell}>
+                        Approved
+                      </TableCell>
+                    )}
+                    <TableCell align="right">
+                      <Button
+                        className={classes.rejectBtn}
+                        onClick={(e) => rejectSchedule(row)}
+                        variant="contained"
+                        size="small"
+                        color="secondary"
+                      >
+                        Remove
+                      </Button>
                     </TableCell>
-                  ) : (
-                    <TableCell className={classes.tableCell}>
-                      Approved
-                    </TableCell>
-                  )}
-                  <TableCell align="right">
-                    <Button
-                      className={classes.rejectBtn}
-                      onClick={(e) => rejectSchedule(row)}
-                      variant="contained"
-                      size="small"
-                      color="secondary"
-                    >
-                      Remove
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              ))}
+                  </TableRow>
+                ))}
+            </TableBody>
+          )
+        ) : (
+          <TableBody>
+            <TableRow>
+              <TableCell colSpan={8} align="center">
+                <CircularProgress />
+              </TableCell>
+            </TableRow>
           </TableBody>
-        ) : (<TableBody>
-          <TableRow>
-            <TableCell colSpan={8} align="center"><CircularProgress/></TableCell>
-          </TableRow>
-        </TableBody>)}
+        )}
       </Table>
     </React.Fragment>
   );
