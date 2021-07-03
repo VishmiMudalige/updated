@@ -55,6 +55,8 @@ const Header = ({ history }) => {
             return <Link to="/viewresearchpapers">Review</Link>
           case "Admin":
             return <Link to="/admin">Dashboard</Link> 
+          case "Editor":
+            return <Link to="/editor">Dashboard</Link>
           default:
             return <Link to="/">Home</Link>
       }

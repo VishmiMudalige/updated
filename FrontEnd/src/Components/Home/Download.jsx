@@ -64,14 +64,14 @@ const Download = () => {
   useEffect( () => {
     axios
         .get('https://salty-savannah-48438.herokuapp.com/api/paper/getall')
-        .then(res => setResearchPapers(res.data.result.filter(data => data.status === "Approved") ))
+        .then(res => setResearchPapers(res.data.result))
         .catch(err => console.log(err))
   }, []);
 
   useEffect( () => {
     axios
         .get('https://salty-savannah-48438.herokuapp.com/api/workshop/view/all')
-        .then(res => setWorkshopData(res.data.result.filter(data => data.status === "Approved")))
+        .then(res => setWorkshopData(res.data.result))
         .catch(err => console.log(err))
   }, []);
 
